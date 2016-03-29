@@ -20,13 +20,14 @@ class RootRouter extends Component {
         return ( 
         	<View style={styles.container}>
 		    	<Router hideNavBar={true}>
+		    		<Schema name="modal" sceneConfig={Navigator.SceneConfigs.FloatFromBottom}/>
 	                <Schema name="default" sceneConfig={Navigator.SceneConfigs.FloatFromRight}/> 
 	                <Route name="login" component={Login} initial={true} />
 	                <Route name="expenseMenu">                
 						<Router>
-							<Route name="expenseList" component={ExpenseList} title="Expense List" /> 
-							<Route name="expenseAdd" component={ExpenseAdd} title="New Expense" />
-							<Route name="expenseView" component={ExpenseView} title="Detail" />
+							<Route name="expenseList" component={ExpenseList} title="Expense List" hideNavBar={true} /> 
+							<Route name="expenseAdd" component={ExpenseAdd} title="New Expense" schema="modal" hideNavBar={true} />
+							<Route name="expenseView" component={ExpenseView} title="Detail" hideNavBar={true} />
 						</Router>
 	                </Route>	                
 	            </Router>	 	

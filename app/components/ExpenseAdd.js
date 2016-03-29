@@ -9,6 +9,7 @@ class ExpenseAdd extends React.Component {
        return (
         	<View style={styles.container}> 
         		<Text>ExpenseAdd</Text>
+                <Text onPress={Actions.pop} >Back</Text>
         	</View>
         );
     }
