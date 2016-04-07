@@ -1,8 +1,7 @@
 import React, {Component, StyleSheet, Text, View, ListView} from 'react-native';
 import {Actions} from 'react-native-router-flux';
 import ActionButton from 'react-native-action-button';
-import NavigationBar from 'react-native-navbar';
-
+import Navbar from './widgets/Navbar';
 import ExpenseRecord from './ExpenseRecord';
 
 class ExpenseList extends React.Component {
@@ -79,22 +78,10 @@ class ExpenseList extends React.Component {
     }
 
     render() {
-      const leftButtonConfig = {
-        title: 'Logout',
-        handler: () => Actions.pop(),
-        tintColor: '#900',
-      };
-      const titleConfig = {
-        title: 'Expense',
-      };
-
       return (
       	<View style={styles.container}> 
-          <NavigationBar
-            title={titleConfig}
-            leftButton={leftButtonConfig} 
-            tintColor='#EEE'
-            style={styles.navBar} />          
+          <Navbar
+            title="Expense" />  
 
           <ListView
             dataSource={this.state.dataSource}
@@ -125,10 +112,6 @@ class ExpenseList extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  navBar: {
-    height: 60,
-  },
-
   container: {
     flex: 1,
   },

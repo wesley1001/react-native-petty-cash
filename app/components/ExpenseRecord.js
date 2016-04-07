@@ -1,4 +1,4 @@
-import React, {Component, StyleSheet, Text, View} from 'react-native';
+import React, {Component, StyleSheet, Text, View, TouchableHighlight} from 'react-native';
 import {Actions} from 'react-native-router-flux';
 var Icon = require('react-native-vector-icons/FontAwesome');
 
@@ -10,13 +10,15 @@ class ExpenseRecord extends React.Component {
    return (
       <View> 
         {this.props.data.map((data, index) => 
-          <View key={'row_'+index} style={styles.row}>
-            <View style={{flex: 0.5}}><Text key={'cateName_'+index} style={styles.cateName}>{data.cateName}</Text></View>
-            <View style={{flex: 0.5, flexDirection: 'row', justifyContent: 'flex-end'}}>
-              <Text key={'price_'+index} style={styles.price}>฿ {data.price.toFixed(2)}</Text>
-              <Icon style={styles.iconArrow} name="chevron-right" size={20} color="#900" />
-            </View>          
-          </View>         
+          <TouchableHighlight underlayColor="#CCC" key={'hl_'+index} onPress={Actions.expenseView}>
+            <View key={'row_'+index} style={styles.row}>
+              <View style={{flex: 0.5}}><Text key={'cateName_'+index} style={styles.cateName}>{data.cateName}</Text></View>
+              <View style={{flex: 0.5, flexDirection: 'row', justifyContent: 'flex-end'}}>
+                <Text key={'price_'+index} style={styles.price}>฿ {data.price.toFixed(2)}</Text>
+                <Icon style={styles.iconArrow} name="chevron-right" size={20} color="#900" />
+              </View>          
+            </View>    
+          </TouchableHighlight>
         )} 
       </View>
     ); 

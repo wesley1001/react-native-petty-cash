@@ -24,11 +24,11 @@ class RootRouter extends Component {
 	                <Schema name="default" sceneConfig={Navigator.SceneConfigs.FloatFromRight}/> 
 	                <Route name="login" component={Login} initial={true} />
 	                <Route name="expenseMenu">                
-						<Router>
-							<Route name="expenseList" component={ExpenseList} title="Expense List" hideNavBar={true} /> 
-							<Route name="expenseAdd" component={ExpenseAdd} title="New Expense" schema="modal" hideNavBar={true} />
-							<Route name="expenseView" component={ExpenseView} title="Detail" hideNavBar={true} />
-						</Router>
+										<Router>
+											<Route name="expenseList" component={ExpenseList} title="Expense List" hideNavBar={true} /> 
+											<Route name="expenseView" component={ExpenseView} title="Detail" hideNavBar={true} />
+											<Route name="expenseAdd" component={ExpenseAdd} title="New Expense" schema="modal" hideNavBar={true}  />
+										</Router>
 	                </Route>	                
 	            </Router>	 	
 		    </View>
@@ -39,10 +39,10 @@ class RootRouter extends Component {
 const styles = StyleSheet.create({
   container: {
     position: 'absolute', 
-	top:0, 
-	left:0, 
-	right: 0, 
-	bottom: 0
+		top:0, 
+		left:0, 
+		right: 0, 
+		bottom: 0
   }
 });
 
