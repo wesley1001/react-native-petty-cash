@@ -12,9 +12,9 @@ class ExpenseRecord extends React.Component {
         {this.props.data.map((data, index) => 
           <View key={'row_'+index} style={styles.row}>
             <View style={{flex: 0.5}}><Text key={'cateName_'+index} style={styles.cateName}>{data.cateName}</Text></View>
-            <View style={{flex: 0.5}}>
+            <View style={{flex: 0.5, flexDirection: 'row', justifyContent: 'flex-end'}}>
               <Text key={'price_'+index} style={styles.price}>฿ {data.price.toFixed(2)}</Text>
-              <Icon name="rocket" size={30} color="#900" />
+              <Icon style={styles.iconArrow} name="chevron-right" size={20} color="#900" />
             </View>          
           </View>         
         )} 
@@ -46,6 +46,10 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 18,
     textAlign: "right",
+    marginRight: 10,
+  },
+  iconArrow: {
+    marginTop: 3
   }
 });
 

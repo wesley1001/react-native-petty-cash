@@ -82,6 +82,7 @@ class ExpenseList extends React.Component {
       const leftButtonConfig = {
         title: 'Logout',
         handler: () => Actions.pop(),
+        tintColor: '#900',
       };
       const titleConfig = {
         title: 'Expense',
@@ -91,7 +92,9 @@ class ExpenseList extends React.Component {
       	<View style={styles.container}> 
           <NavigationBar
             title={titleConfig}
-            leftButton={leftButtonConfig} />          
+            leftButton={leftButtonConfig} 
+            tintColor='#EEE'
+            style={styles.navBar} />          
 
           <ListView
             dataSource={this.state.dataSource}
@@ -100,7 +103,7 @@ class ExpenseList extends React.Component {
           />
 
           <ActionButton 
-            buttonColor="rgba(231,76,60,1)"
+            buttonColor="#900"
             onPress={Actions.expenseAdd}
             position="left"
           />
@@ -122,6 +125,10 @@ class ExpenseList extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  navBar: {
+    height: 60,
+  },
+
   container: {
     flex: 1,
   },
