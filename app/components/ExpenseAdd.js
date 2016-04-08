@@ -98,7 +98,8 @@ class ExpenseAdd extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: '#F5FCFF' 
   },
   form: {
     padding: 5,

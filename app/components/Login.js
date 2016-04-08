@@ -1,6 +1,7 @@
 import React, {Component, StyleSheet, Text, View} from 'react-native';
 import {Actions} from 'react-native-router-flux';
 var Button = require('react-native-button');
+var Icon = require('react-native-vector-icons/FontAwesome')
 
 class Login extends React.Component {
     constructor(props) {
@@ -12,14 +13,11 @@ class Login extends React.Component {
             <Text style={styles.headline}>SSS</Text>
             <Text style={styles.subline}>Know Your Petty Cash</Text>
             <View>
-               <Button containerStyle={styles.buttonContainer}                 
-                  style={styles.button}
-                  onPress={Actions.expenseMenu} 
-                > 
-                Log in with Facebook
-              </Button>
+              <Icon.Button name="facebook" backgroundColor="#3b5998" onPress={Actions.expenseMenu} >
+                <Text style={styles.button}>Login with Facebook</Text>
+              </Icon.Button>
             </View>
-        	</View>
+        	</View> 
         ); 
     }
 } 
@@ -34,22 +32,19 @@ const styles = StyleSheet.create({
   },
   headline: {
     fontSize: 60,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
   subline: {
     color: '#BBB',
     fontSize: 20,
+    marginBottom: 80
   },
   buttonContainer: {
     marginTop: 100, 
-    padding:10, 
-    height:45, 
-    overflow:'hidden', 
-    borderRadius:4, 
-    backgroundColor: '#3b5998'
   },
   button: {
-    fontSize: 20, 
+    fontFamily: 'Arial',
+    fontSize: 18, 
     color: 'white'
   }
 });
