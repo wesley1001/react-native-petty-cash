@@ -3,6 +3,14 @@ import {Actions} from 'react-native-router-flux';
 import NavigationBar from 'react-native-navbar';
 
 export default class Navbar extends React.Component {
+  static defaultProps = {
+    title: '',
+    lTitle: '',
+    lHandler: () => Actions.pop(),
+    rTitle: '',
+    rHandler: () => ({})
+  };
+
   constructor(props) {
     super(props);
   }
@@ -33,14 +41,6 @@ export default class Navbar extends React.Component {
 			    style={styles.navBar} />  
     );
   }
-
-  static defaultProps = {
-    title: '',
-    lTitle: '',
-    lHandler: () => Actions.pop(),
-    rTitle: '',
-    rHandler: () => ({})
-  };
 }
 
 const styles = StyleSheet.create({

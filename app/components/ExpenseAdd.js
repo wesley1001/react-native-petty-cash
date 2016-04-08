@@ -1,6 +1,7 @@
-import React, {Component, StyleSheet, Text, View, TextInput, Picker} from 'react-native';
+import React, {Component, StyleSheet, Text, View, TextInput, Picker, DatePickerAndroid, TouchableWithoutFeedback} from 'react-native';
 import {Actions} from 'react-native-router-flux';
 import Navbar from './widgets/Navbar';
+import DatePicker from './widgets/DatePicker';
 var Icon = require('react-native-vector-icons/FontAwesome');
 
 class ExpenseAdd extends React.Component {
@@ -52,7 +53,6 @@ class ExpenseAdd extends React.Component {
                 <Text style={styles.label}>Category</Text>               
               </View>
               <View style={styles.inputContainer}>
-
                   <Picker
                     selectedValue={this.state.language}
                     onValueChange={(lang) => this.setState({language: lang})}>
@@ -68,11 +68,8 @@ class ExpenseAdd extends React.Component {
                 <Icon style={styles.icon} name="calendar" size={23} color="#666" />
                 <Text style={styles.label}>Date</Text>               
               </View>
-              <View style={styles.inputContainer}>
-               <TextInput
-                  style={styles.textInput} 
-                  placeholder={'Calendar'} 
-                  placeholderTextColor={'#DDD'} />
+              <View style={styles.inputContainer}>               
+                <DatePicker />
               </View>
             </View>
 
