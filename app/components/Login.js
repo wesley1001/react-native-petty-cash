@@ -1,22 +1,52 @@
 import React, {Component, StyleSheet, Text, View} from 'react-native';
 import {Actions} from 'react-native-router-flux';
 var Button = require('react-native-button');
-var Icon = require('react-native-vector-icons/FontAwesome')
+var Icon = require('react-native-vector-icons/FontAwesome');
+var FBLogin = require('react-native-facebook-login');
+var config = require('../config/config');
 
 class Login extends React.Component {
     constructor(props) {
         super(props);
     }
+
+    onLogin(e) {
+      console.log(e);
+
+      // add user name
+      /*fetch("http://www.example.com/test", {
+        method: "POST", 
+        body: JSON.stringify({
+          username: "nraboy", 
+          firstname: "Nic", 
+          lastname: "Raboy"
+        })
+      })
+      .then((response) => response.json())
+      .then((responseData) => {
+          
+      })
+      .done();*/
+
+      // redirect 
+
+    }
+
+    onError(e){
+      alert("Login Failed. Please check internet and Try again.");
+      console.log(e);
+    }
+
     render() {	
         return (
         	<View style={styles.container}>
             <Text style={styles.headline}>SSS</Text>
             <Text style={styles.subline}>Know Your Petty Cash</Text>
-            <View>
-              <Icon.Button name="facebook" backgroundColor="#3b5998" onPress={Actions.expenseMenu} >
-                <Text style={styles.button}>Login with Facebook</Text>
-              </Icon.Button>
-            </View>
+            <FBLogin
+                onLogin={this.onLogin}                
+                onError={this.onError}                
+              />
+              <Text>  {config.serverUrl}</Text>
         	</View> 
         ); 
     }
