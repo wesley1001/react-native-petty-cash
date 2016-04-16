@@ -9,27 +9,23 @@ class Login extends React.Component {
     constructor(props) {
         super(props);
     }
-
+ 
     onLogin(e) {
-      console.log(e);
-
-      // add user name
-      /*fetch("http://www.example.com/test", {
+      // check and add user name
+      fetch(config.serverUrl+"/user", { 
         method: "POST", 
         body: JSON.stringify({
-          username: "nraboy", 
-          firstname: "Nic", 
-          lastname: "Raboy"
+          fb_id: e.profile.id, 
+          name: e.profile.name, 
+          email: e.profile.email
         })
       })
       .then((response) => response.json())
       .then((responseData) => {
-          
+        // redirect
+        Actions.expenseMenu();
       })
-      .done();*/
-
-      // redirect 
-
+      .done();
     }
 
     onError(e){
@@ -41,12 +37,11 @@ class Login extends React.Component {
         return (
         	<View style={styles.container}>
             <Text style={styles.headline}>SSS</Text>
-            <Text style={styles.subline}>Know Your Petty Cash</Text>
+            <Text style={styles.subline} onPress={Actions.expenseMenu} >Know Your Petty Cash</Text>
             <FBLogin
                 onLogin={this.onLogin}                
                 onError={this.onError}                
               />
-              <Text>  {config.serverUrl}</Text>
         	</View> 
         ); 
     }
